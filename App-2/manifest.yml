@@ -1,0 +1,26 @@
+modules:
+  jira:issuePanel:
+    - key: app-2-hello-world-panel
+      resource: main
+      resolver:
+        function: resolver
+      viewportSize: medium
+      title: App-2
+      icon: https://developer.atlassian.com/platform/forge/images/issue-panel-icon.svg
+  function:
+    - key: resolver
+      handler: index.handler
+resources:
+  - key: main
+    path: static/hello-world/build
+permissions:
+  external:
+    fetch:
+      backend:
+        - 5a65-103-109-144-44.ngrok-free.app
+  scopes:
+    - read:jira-work
+app:
+  runtime:
+    name: nodejs20.x
+  id: ari:cloud:ecosystem::app/63deede5-3ea8-4ff5-845e-5bbecba57db9
